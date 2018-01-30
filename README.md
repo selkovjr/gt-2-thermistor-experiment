@@ -2,7 +2,7 @@
 
 **How good is this thermistor?**
 
-Thanks to [David Crocker](https://github.com/dc42) who has identified this thermistor, now I at least know where it came from. It is a 104GT glass thermistor by ATC Semitec). The code name obviously means *"an (approximately) 100k&Omega; Glass Thermistor"*. This is how we know:
+Thanks to [David Crocker](https://github.com/dc42) who has identified it from my vauge description, now I at least know what it was supposed to be like. It is a 104GT glass thermistor by ATC Semitec). The codename obviously means *"an (approximately) 100k&Omega; Glass Thermistor"*. This is how we know:
 
 ![measured data](measurements.png)
 
