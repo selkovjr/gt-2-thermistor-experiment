@@ -33,6 +33,6 @@ Steinthart-Hart coefficients, NLS fit to data:     A = 0.0008401263, B = 0.00019
 
 With oscillations and drift subdued, this experiment reveals what appears to be an irreducible non-linearity of model error, which can now be recognized in the residuals of the first experiment.
 
-What is it? Does it mean that the Steinhart-Hart model is inadequate (not complex enough)? Can this pattern of deviation be caused by gradient-induced bias between the thermistor and the reference thermocouple? Imperfect thermocouple calibration?
+What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this pattern of deviation be caused by gradient-induced bias between the thermistor and the reference thermocouple? Imperfect thermocouple calibration?
 
 I will attempt to answer these questions in subsequent experiments.
