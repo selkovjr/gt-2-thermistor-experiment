@@ -2,6 +2,8 @@
 
 **How good is this thermistor?**
 
+## Experiment 1
+
 Thanks to [David Crocker](https://github.com/dc42) who has identified it from my vauge description, now I at least know what it was supposed to be like. It is a 104GT glass thermistor by ATC Semitec). The codename obviously means *"an (approximately) 100k&Omega; Glass Thermistor"*. This is how we know:
 
 ![measured data](SH-fit.1.png)
@@ -15,7 +17,10 @@ The colored lines are [resistance-temeperature tables](https://github.com/selkov
 
 While the data points from the first experiment appear to straddle the nominal curve for 104GT pretty nicely, the Steinhart-Hart model residuals reveal at least one flaw flaw in this experiment: oscilations and possibly drift in thermostat. In this experiment, I used an auxiliary thermistor tucked under the insulation blanket on top of the nozzle, next to the heater cartridge, to provide temperature signal to the thermostat while I measured the resistance of the thermistor I was calibrating. While this placement helped reduce the lag between the two thermistors, it was also insecure and probably accounted for much of the observed drift. Also, I neglected to tune the thermostat and it oscillated more than it normally does, making it difficult to catch the set value.
 
-In the second experiment, instead of taking many measurements around each temperature setting in the hope that they will average close to it, I waited until the thermostat settled. I also made efforts to tune the thermostat to the auxiliary thermistor set-up, which I failed to do in the first experiment. The resulting data set fits a bit better:
+
+## Experiment 2
+
+In the following experiment, instead of taking many measurements around each temperature setting in the hope that they will average close to it, I waited until the thermostat settled. I also made efforts to tune the thermostat to the auxiliary thermistor set-up, which I failed to do in the first experiment. The resulting data set fits a bit better:
 
 ![measured data](SH-fit.2.png)
 
