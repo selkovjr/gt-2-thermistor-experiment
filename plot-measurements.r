@@ -2,7 +2,7 @@ library(ggplot2)
 library(reshape2)
 
 
-m <- read.table('104GT-measurements.tab')
+m <- read.table('104GT-measurements.1.tab')
 names(m) = c('T', 'r')
 
 d <- read.table('gt-2-glass-thermistors.tab', header = TRUE)
