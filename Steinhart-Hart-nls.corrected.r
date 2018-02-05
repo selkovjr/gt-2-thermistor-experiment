@@ -4,8 +4,12 @@ library(ggplot2)
 ##devtools::install_github('thomasp85/patchwork')
 library(patchwork)
 
+sim <- read.table('simulation.tab')
+names(sim) <- c('Thermocoupe', 'Thermistor', 'Nozzle', 'Heater')
+
 m2 <- read.table('104GT-measurements.2.tab')
 names(m2) = c('T', 'R')
+m2$T <- m2$T + (m2$T - sim$Thermistor) * 22
 
 d <- read.table('gt-2-glass-thermistors.tab', header = TRUE)
 md <- melt(d, id.vars = 'T')
@@ -63,7 +67,7 @@ plot1 <- ggplot() +
 
 plot2 <- ggplot() +
   geom_point(data = residuals, mapping = aes(x = T, y = ΔT), size = 0.2) +
-  scale_y_continuous(breaks = -1.5 + 0.5 * (1:7), name = bquote(paste('Steinhart-Hart residuals ', degree * C))) +
+  scale_y_continuous(breaks = -1.5 + 0.1 * (1:30), name = bquote(paste('Steinhart-Hart residuals ', degree * C))) +
   xlab(expression('Temperature, ' * degree * C)) +
   xlim(range(md$T)) +
   annotate(geom="text", x = Inf, y = Inf, hjust = 1.2, vjust = 1.5, label = sprintf("r2 = %.2f", r2))
