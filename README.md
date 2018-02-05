@@ -20,7 +20,7 @@ While the data points from the first experiment appear to straddle the nominal c
 
 ## Experiment 2
 
-In the following experiment, instead of taking many measurements around each temperature setting in the hope that they would average close to it, I waited until the thermostat settled before taking each measurment. Also, unlike first time, I made efforts to calibrate the auxiliary thermistor (using the Beta model) and tuned the thermostat to it. This time, I placed the auxiliary thermistor inside a screw hole in the nozzle, so that it was completely embedded in the metal, but still close to the surface (I was unable to screw it in deeper).
+In the following experiment, instead of taking many measurements around each temperature setting in the hope that they would average close to it, I waited until the thermostat settled before taking each measurment. Also, unlike the first time, I made efforts to calibrate the auxiliary thermistor (using the Beta model) and tuned the thermostat to it. This time, I placed the auxiliary thermistor inside a screw hole in the nozzle, so that it was completely embedded in the metal, but still close to the surface (I was unable to screw it in deeper).
 
 ![hotend picture](diamond-hotend.png)
 
@@ -43,4 +43,9 @@ What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this p
 
 *No hardware was harmed in the making of this experiment*
 
-The squiggly Steinhart-Hart residuals seen in Experiment 2 demanded explanation. Steinhart and Hart have good reputation and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple
+The squiggly Steinhart-Hart residuals seen in Experiment 2 demanded explanation. Steinhart and Hart have good reputation and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and proband thermistor a more likely cause. How big a gradient is it?
+
+To find out, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
+
+[diamond-nozzle.e2d](diamond-nozzle.e2d)
+![measured data](diamond-hotend-200C.png)
