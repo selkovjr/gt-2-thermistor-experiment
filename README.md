@@ -50,4 +50,9 @@ To find out, I built this thermal model of the nozzle using [a version of Energy
 [diamond-nozzle.e2d](diamond-nozzle.e2d)
 ![measured data](diamond-hotend-200C.png)
 
-[The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminated a couple nasty artifacts.
+[The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminates a couple nasty artifacts.
+
+This model is dodgy in too many ways to mention, but some of its features are robust enough to make it useful in this thought experiment.
+
+First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is how much and in what direction we would need to offset probe measurements in order to match the hypothetical temperatures around the thermistor (hypothecial because we cannot measure them directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential with respect to source temperature. If I managed to remember that, I could simply add an arbitrary exponential function to measured temperature values and optimize it for best fit. Instead, I used this heat transfer model to generate the offsets. This method is both fanciful and thought-free &mdash; what's not to like?
+
