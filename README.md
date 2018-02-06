@@ -41,11 +41,13 @@ What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this p
 
 ## A thought experiment
 
-*No hardware was harmed in the making of this experiment*
+*No hardware was harmed in the making of this observation*
 
-The squiggly Steinhart-Hart residuals seen in Experiment 2 demanded explanation. Steinhart and Hart have good reputation and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and proband thermistor a more likely cause. How big a gradient is it?
+The squiggly Steinhart-Hart residuals seen in Experiment 2 demand explanation. Steinhart and Hart have good reputation and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and proband thermistor a prime suspect. How big a gradient is there?
 
 To find out, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
 
 [diamond-nozzle.e2d](diamond-nozzle.e2d)
 ![measured data](diamond-hotend-200C.png)
+
+[The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminated a couple nasty artifacts.
