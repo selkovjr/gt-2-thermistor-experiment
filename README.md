@@ -24,7 +24,7 @@ In the following experiment, instead of taking many measurements around each tem
 
 ![hotend picture](diamond-hotend.png)
 
-This arrangement resulted in a greater lag between the heater and the auxiliary thermistor. Due to intense radiation from nozzle surface, it also allowed for a greater (although unknown in both cases) thermal gradient between the heater and the auxiliary thermistor. The obvious downside of that was that the thermostat overshot its setpoints by more than 10&deg;C and required more than 10 minutes to settle. On the upside, the oscillations were well-damped and the new location of the auxiliary thermostat was mechanically and thermally stable, maknig measurements reproducible within instrument precision.
+This arrangement resulted in a greater lag between the heater and the auxiliary thermistor. Due to intense radiation from nozzle surface, it also allowed for a greater (although unknown in either experiment) thermal gradient between the heater and the auxiliary thermistor. The obvious downside of that was that the thermostat overshot its setpoints by more than 10&deg;C and required more than 10 minutes to settle. On the upside, the oscillations were well-damped and the new location of the auxiliary thermostat was mechanically and thermally stable, maknig measurements reproducible within instrument precision.
 
 The resulting model residuals are rather more tame than in the first exepriment:
 
