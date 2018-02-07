@@ -50,7 +50,7 @@ To find out, I built this thermal model of the nozzle using [a version of Energy
 [diamond-nozzle.e2d](diamond-nozzle.e2d)
 ![measured data](diamond-hotend-200C.png)
 
-> [The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminates a couple nasty artifacts. I did not have to build this version because the repo includes a pre-built jar; I just ran `java -jar energy2d/exe/energy2d.jar`.
+> [The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminates a couple nasty artifacts. I did not have to build his version because the repo includes a pre-built jar; I just ran `java -jar energy2d/exe/energy2d.jar`.
 
 This model is dodgy in too many ways to mention, but some of its features are robust enough to make it useful in this thought experiment.
 
