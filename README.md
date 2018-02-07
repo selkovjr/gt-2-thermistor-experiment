@@ -71,6 +71,6 @@ Steinthart-Hart coefficients, 3-point estimation:  A = 0.0006719893, B = 0.00022
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006724225, B = 0.0002239644, C = 0.0000000723
 ```
 
-Correcting probe temperatures using the raw results of gradient simulation or their best-fit exponential approximation minimizes Steinhart-Hart residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively). But, given the size of measurement error and the lack of physical sense in the perfect optimizer, it is more likely to result in destructive overfitting than in higher accuracy. The result of the realistic adjustment is good enough.
+Correcting probe temperatures using the raw results of gradient simulation or their best-fit exponential approximation minimizes Steinhart-Hart residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively). But, given the size of measurement error and the lack of physical sense in the perfect optimizer, it is more likely to result in destructive overfitting than in higher accuracy. The realistic adjustment is good enough.
 
 *Le mieux est l'ennemi du bien.*
