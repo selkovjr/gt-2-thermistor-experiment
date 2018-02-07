@@ -67,7 +67,7 @@ plot1 <- ggplot() +
   #stat_function(fun = model, data = model_T, mapping = aes(x = T, y = model(T))) +
   scale_y_log10(breaks = breaks, minor_breaks = minor_breaks, labels = c('0.1', '1', '10', '100', '1000', '10000', '100000'), name = bquote(paste('Resistance, k', Omega))) +
   xlim(range(md$T)) +
-  ggtitle(bquote(paste('Measured 104GT data and nominal ', italic(R(T)), ' for the GT-2 series, Experiment 2'))) +
+  ggtitle(bquote(paste('Gradient-adjusted 104GT data and nominal ', italic(R(T)), ' for the GT-2 series'))) +
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
 
 plot2 <- ggplot() +

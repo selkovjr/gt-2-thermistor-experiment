@@ -7,17 +7,17 @@ measurements.1.png: 104GT-measurements.1.tab gt-2-glass-thermistors.tab
 	convert -density 100 -flatten tmp.eps $@
 	rm tmp.eps
 
-SH-fit.1.png: 104GT-measurements.1.tab gt-2-glass-thermistors.tab
+SH-fit.1.png: 104GT-measurements.1.tab gt-2-glass-thermistors.tab Steinhart-Hart-nls.m1.r
 	cat Steinhart-Hart-nls.m1.r | R --vanilla --slave > tmp.eps
 	convert -density 100 -flatten tmp.eps $@
 	rm tmp.eps
 
-SH-fit.2.png: 104GT-measurements.2.tab gt-2-glass-thermistors.tab
+SH-fit.2.png: 104GT-measurements.2.tab gt-2-glass-thermistors.tab Steinhart-Hart-nls.m2.r
 	cat Steinhart-Hart-nls.m2.r | R --vanilla --slave > tmp.eps
 	convert -density 100 -flatten tmp.eps $@
 	rm tmp.eps
 
-SH-fit.corrected.png: 104GT-measurements.2.tab gt-2-glass-thermistors.tab simulation.tab
+SH-fit.corrected.png: 104GT-measurements.2.tab gt-2-glass-thermistors.tab simulation.tab Steinhart-Hart-nls.corrected.r
 	cat Steinhart-Hart-nls.corrected.r | R --vanilla --slave > tmp.eps
 	convert -density 100 -flatten tmp.eps $@
 	rm tmp.eps

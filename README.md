@@ -56,9 +56,21 @@ This model is dodgy in too many ways to mention, but some of its features are ro
 
 First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is by how much and in what direction we need to offset probe measurements in order to match the real temperature around the thermistor (otherwise not known because we cannot measure it directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential. Had I managed to remember that, I would simply add an arbitrary exponential function to measured temperature values and optimize it for best fit. Instead, I used this heat transfer model to generate the offsets. This method is both fanciful and thought-free &mdash; what's not to like?
 
-Varying heat inputs in this model to match measured temperatures at the probe produces the following dependence of thermistor-probe gradient on probe temperature:
+Varying heat inputs in this model to match measured temperatures at the probe reveals the following dependence of thermistor-probe gradient on probe temperature:
 
 ![thermal gradient](gradient.png)
 
+It is clearly exponential. Never mind that it has the wrong sign and is 20 times too small. Using a scaled version of this function to adjust thermocouple measurments reduces Steinhart-Hart residuals by an order of magnitude, completely eliminating the squiggle (and thereby confirming its origin).
 
+The following model fit incorporates probe temperature adjustment with a 'realistic' approximation, which has Kelvin temperature as argument:
+
+![adjusted model!](SH-fit.corrected.png)
+
+```
+
+Steinthart-Hart coefficients, 3-point estimation:                  A = 0.0006828852, B = 0.0002225379, C = 0.0000000746
+Steinthart-Hart coefficients, NLS fit to data:                     A = 0.0006670699, B = 0.0002247042, C = 0.0000000700
+```
+
+Correcting probe temperatures using raw datapoints from gradient simulation or the 'best fit' exponential approximation minimizes the residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively).
 
