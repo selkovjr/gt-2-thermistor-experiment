@@ -60,7 +60,7 @@ Varying heat inputs in this model to match measured temperatures at the probe re
 
 ![thermal gradient](gradient.png)
 
-It is clearly exponential. Never mind that it has the wrong sign and is 20 times too small. Using a scaled version of this function to adjust thermocouple measurments reduces Steinhart-Hart residuals by an order of magnitude, completely eliminating the squiggle (and thereby confirming its origin).
+It is clearly exponential. It does not matter that it has a wrong sign and is 20 times too small. Using a scaled version of this function to adjust thermocouple measurments reduces Steinhart-Hart residuals by an order of magnitude, completely eliminating the squiggle (and thereby confirming my suspicion about its origin).
 
 The following model fit incorporates probe temperature adjustment with a 'realistic' approximation &mdash; the one that is a function of Kelvin temperature:
 
