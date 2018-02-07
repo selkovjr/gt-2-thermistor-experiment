@@ -62,15 +62,14 @@ Varying heat inputs in this model to match measured temperatures at the probe re
 
 It is clearly exponential. Never mind that it has the wrong sign and is 20 times too small. Using a scaled version of this function to adjust thermocouple measurments reduces Steinhart-Hart residuals by an order of magnitude, completely eliminating the squiggle (and thereby confirming its origin).
 
-The following model fit incorporates probe temperature adjustment with a 'realistic' approximation, which has Kelvin temperature as argument:
+The following model fit incorporates probe temperature adjustment with a 'realistic' approximation &mdash; the one that is a function of Kelvin temperature:
 
 ![adjusted model!](SH-fit.corrected.png)
 
 ```
-
-Steinthart-Hart coefficients, 3-point estimation:                  A = 0.0006828852, B = 0.0002225379, C = 0.0000000746
-Steinthart-Hart coefficients, NLS fit to data:                     A = 0.0006670699, B = 0.0002247042, C = 0.0000000700
+Steinthart-Hart coefficients, 3-point estimation:  A = 0.0006719893, B = 0.0002241540, C = 0.0000000704
+Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006724225, B = 0.0002239644, C = 0.0000000723
 ```
 
-Correcting probe temperatures using raw datapoints from gradient simulation or the 'best fit' exponential approximation minimizes the residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively).
+Correcting probe temperatures using the raw results of gradient simulation or their best-fit exponential approximation minimizes Steinhart-Hart residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively). But, given the size of measurement error and the lack of physical sense in these adjustments, they are more likely to result in destructive overfitting. The result of the realistic adjustment is good enough.
 
