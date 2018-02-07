@@ -4,12 +4,18 @@ library(ggplot2)
 ##devtools::install_github('thomasp85/patchwork')
 library(patchwork)
 
+bf_func <- function(x) 108.2518 * exp( -1744.688 / (x + 82.16401) ) - 4.782322e-05 # best-fitting
+func <- function(x) 4231.441 * exp( -4659.264 / (x + 273.15) ) - 0.00580773 # realistic
+
 sim <- read.table('simulation.tab')
 names(sim) <- c('Thermocoupe', 'Thermistor', 'Nozzle', 'Heater')
 
 m2 <- read.table('104GT-measurements.2.tab')
 names(m2) = c('T', 'R')
-m2$T <- m2$T + (m2$T - sim$Thermistor) * 22
+
+#m2$T <- m2$T + (m2$T - sim$Thermistor) * 22.8
+#m2$T <- m2$T + bf_func(m2$T) * 22.0
+m2$T <- m2$T + func(m2$T) * 20.6
 
 d <- read.table('gt-2-glass-thermistors.tab', header = TRUE)
 md <- melt(d, id.vars = 'T')
@@ -70,6 +76,6 @@ plot2 <- ggplot() +
   scale_y_continuous(breaks = -1.5 + 0.1 * (1:30), name = bquote(paste('Steinhart-Hart residuals ', degree * C))) +
   xlab(expression('Temperature, ' * degree * C)) +
   xlim(range(md$T)) +
-  annotate(geom="text", x = Inf, y = Inf, hjust = 1.2, vjust = 1.5, label = sprintf("r2 = %.2f", r2))
+  annotate(geom="text", x = Inf, y = Inf, hjust = 1.2, vjust = 1.5, label = paste0('r^{2}==', sprintf('%.2f', r2)), parse = TRUE)
 
 plot1 + plot2 + plot_layout(ncol = 1, heights = c(3, 1))

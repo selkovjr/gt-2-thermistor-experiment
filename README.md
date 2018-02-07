@@ -54,5 +54,8 @@ To find out, I built this thermal model of the nozzle using [a version of Energy
 
 This model is dodgy in too many ways to mention, but some of its features are robust enough to make it useful in this thought experiment.
 
-First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is by how much and in what direction we would need to offset probe measurements in order to match the hypothetical temperature around the thermistor (hypothecial because we cannot measure it directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential with respect to source temperature. If I managed to remember that, I could simply add an arbitrary exponential function to measured temperature values and optimize it for best fit. Instead, I used this heat transfer model to generate the offsets. This method is both fanciful and thought-free &mdash; what's not to like?
+First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is by how much and in what direction we would need to offset probe measurements in order to match the real temperature around the thermistor (otherwise not known because we cannot measure it directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential with respect to source temperature. If I managed to remember that, I could simply add an arbitrary exponential function to measured temperature values and optimize it for best fit. Instead, I used this heat transfer model to generate the offsets. This method is both fanciful and thought-free &mdash; what's not to like?
+
+Varying heat inputs in this model to match measured temperatures at the probe produces the following dependence of thermistor-probe gradient on probe temperature:
+
 
