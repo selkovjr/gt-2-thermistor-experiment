@@ -55,17 +55,16 @@ names(residuals) <- c('T', 'ΔT')
 
 postscript(file='', command='cat', paper='special', onefile=F, horizontal=F, width=12, height=9, pointsize=8)
 
-model <- function(T) 1 * ThermistorResistanceSteinhartHart(T + 273.17, abc$A, abc$B, abc$C)
+model <- function(T) ThermistorResistanceSteinhartHart(T + 273.15, abc$A, abc$B, abc$C)
 model_T <- data.frame(T = range(md$T))
 
 breaks <- 10**(1:7) / 100
-#minor_breaks <- rep(1:9, 21) * (10 ^ rep(-10:10, each = 9))
 minor_breaks <- rep(seq(2, 8, by = 2), 21) * (10 ^ rep(seq(-10, 10, by = 1), each = 4))
 
 plot1 <- ggplot() +
   geom_line(data = md, aes(T, Resistance, col=Thermistor), na.rm = TRUE) +
   geom_point(data = m2, mapping = aes(x = T, y = R), size = 0.2) +
-  #stat_function(data = model_T, fun = model, geom = 'line') +
+  #stat_function(fun = model, data = model_T, mapping = aes(x = T, y = model(T))) +
   scale_y_log10(breaks = breaks, minor_breaks = minor_breaks, labels = c('0.1', '1', '10', '100', '1000', '10000', '100000'), name = bquote(paste('Resistance, k', Omega))) +
   xlim(range(md$T)) +
   ggtitle(bquote(paste('Measured 104GT data and nominal ', italic(R(T)), ' for the GT-2 series, Experiment 2'))) +
