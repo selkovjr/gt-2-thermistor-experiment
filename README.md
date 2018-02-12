@@ -58,13 +58,11 @@ To find out what may be possible in two dimensions, I built this thermal model o
 
 This model is dodgy in too many ways to mention, yet it simulates the sort of gradient that could be responsible for the warp.
 
-Varying heat inputs to match measured temperatures at the probe reveals the following dependence of the thermistor-probe gradient on probe temperature:
+Varying model heater temperature to match measured temperatures at the probe produced the following dependence of thermistor-probe offset on probe temperature:
 
 ![thermal gradient](gradient.png)
 
-It is clearly exponential. It does not matter that it has a wrong sign and is 20 times too small. Using a scaled version of this function to adjust thermocouple measurments reduces Steinhart-Hart residuals by an order of magnitude, completely eliminating the squiggle (and thereby confirming my suspicion about its origin).
-
-The following model fit incorporates probe temperature adjustment with the 'realistic' approximation plotted in the above graph &mdash; the one that is a function of Kelvin temperature:
+This model is likely wrong about the magnitude of the gradient and even its direction. But, by what seems like a stroke of luck, it still contains useful information. Negating the simulated offsets and scaling them 23x minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle (and thus confirming my suspicion about its origin):
 
 ![adjusted model!](SH-fit.corrected.png)
 
