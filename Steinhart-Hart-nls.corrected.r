@@ -60,6 +60,6 @@ plot2 <- ggplot() +
   scale_y_continuous(breaks = -1.5 + 0.1 * (1:30), name = bquote(paste('Steinhart-Hart residuals ', degree * C))) +
   xlab(expression('Temperature, ' * degree * C)) +
   xlim(range(md$T)) +
-  annotate(geom="text", x = Inf, y = Inf, hjust = 1.2, vjust = 1.5, label = paste0('r^{2}==', sprintf('%.2f', r2)), parse = TRUE)
+  annotate(geom="text", x = Inf, y = Inf, hjust = 1.2, vjust = 1.5, label = paste0('italic(r)^{2}==', sprintf('%.2f', r2)), parse = TRUE)
 
 plot1 + plot2 + plot_layout(ncol = 1, heights = c(3, 1))
