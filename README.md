@@ -60,15 +60,22 @@ Varying the temperature of simulated heater to match the observations at the pro
 
 ![thermal gradient](gradient.png)
 
-This model is likely wrong about the magnitude of the field and even its shape, but somehow, negating the simulated offsets and scaling them **by a factor of 23**  minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle (and thus boosting my initial suspicion about its origin in thermal gradient):
+This model is likely wrong about the magnitude of the field and even its shape, but somehow, transforming the data by adding a linear function of the simulated offsets (negating and scaling them **by a factor of 23**)  minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle:
 
 ![adjusted model!](SH-fit.corrected.png)
 
 ```
-teinthart-Hart coefficients, 3-point estimation:   A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
+Steinthart-Hart coefficients, 3-point estimation:   A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006509953, B = 0.0002275946, C = 0.0000000577
 ```
 
+That is a remarkably good fit, free of obvious artifacts. The thermal model must be right about something. Now the question is, will it be right every time, or was this a stroke of luck?
+
+
 ## Sanity check
 
+In an attempt to make the model a little more realistic, I added a heatsink:
+
+[diamond-nozzle.e2d](diamond-nozzle.heatsink.e2d)
+![measured data](diamond-hotend+heatsink-200C.png)
 
