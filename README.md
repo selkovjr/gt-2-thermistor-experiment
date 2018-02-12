@@ -35,7 +35,6 @@ The resulting model residuals are rather more tame than in the first exepriment:
 ```
 Steinthart-Hart coefficients, 3-point estimation:  A = 0.0008336840, B = 0.0001991579, C = 0.0000001516
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0008324170, B = 0.0001985115, C = 0.0000001625
-
 ```
 
 With oscillations and drift subdued, this experiment reveals what appears to be an irreducible non-linearity of model error, which can now be recognized in the residuals of the first experiment.
@@ -61,14 +60,13 @@ Varying the temperature of simulated heater to match the observations at the pro
 
 ![thermal gradient](gradient.png)
 
-This model is likely wrong about the magnitude of the gradient and even its direction. But, by what seems like a stroke of luck, it still contains useful information. Negating the simulated offsets and scaling them 23x minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle (and thus confirming my suspicion about its origin):
+This model is likely wrong about the magnitude of the field and even its shape, but somehow, negating the simulated offsets and scaling them *by a factor of 23*  minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle (and thus confirming my suspicion about its origin in the field):
 
 ![adjusted model!](SH-fit.corrected.png)
 
 ```
 teinthart-Hart coefficients, 3-point estimation:   A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006509953, B = 0.0002275946, C = 0.0000000577
-
 ```
 
 Correcting probe temperatures using the raw results of gradient simulation or their best-fit exponential approximation minimizes Steinhart-Hart residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively). But, given the size of measurement error and the lack of physical sense in the perfect optimizer, it is more likely to result in destructive overfitting than in higher accuracy. The realistic adjustment is good enough.
