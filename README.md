@@ -76,6 +76,7 @@ That is a remarkably good fit, free of obvious artifacts. The thermal model must
 
 In an attempt to make the model a little more realistic, I added a heatsink:
 
-[diamond-nozzle.e2d](diamond-nozzle.heatsink.e2d)
+[diamond-nozzle+heatsink.e2d](diamond-nozzle.heatsink.e2d)
 ![measured data](diamond-hotend+heatsink-200C.png)
 
+Intuitively, it seems to be a better model. The heatsink flattened the field and inverted temperature difference between the thermistor and the probe. The maximum difference between all sampling points is now 4&deg;C. It was 7&deg;C in the previous model &mdash; an uncomfortably large amount.
