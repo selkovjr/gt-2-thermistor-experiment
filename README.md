@@ -47,7 +47,7 @@ What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this p
 
 The squiggly Steinhart-Hart residuals seen in Experiment 2 demand explanation. Steinhart and Hart have good reputations and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and the proband thermistor a prime suspect. How big a gradient is it and is it possible that the shape of the field surrounding the probe and the thermistor is responsible for the warped resuduals?
 
-If this was a one-dimensional problem, the answer would be negative. All steady-state solutions in an insulated rod result in linear gradients. A quick search around the raw least-squares fit of the Steinhart-Hart model shows that no liear adjustment can result in a better fit.
+If this was a one-dimensional problem, the answer would be negative. Only a linear gradient can be a steady-state solution in an insulated rod. A quick search around the raw least-squares fit of the Steinhart-Hart model shows that no liear adjustment can achieve a better fit.
 
 To find out what may be possible in two dimensions, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
 
@@ -58,9 +58,7 @@ To find out what may be possible in two dimensions, I built this thermal model o
 
 This model is dodgy in too many ways to mention, yet it simulates the sort of gradient that could be responsible for the warp.
 
-First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is by how much and in what direction we need to offset probe measurements in order to match the real temperature around the thermistor (otherwise not known because we cannot measure it directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential. Had I managed to remember that, I would simply add an arbitrary exponential function to measured temperature values, optimizing it for the best fit. Instead, I used this sketchy heat transfer model to generate the offsets. This method is both fanciful and thought-free. I like it.
-
-Varying heat inputs in this model to match measured temperatures at the probe reveals the following dependence of thermistor-probe gradient on probe temperature (the actual independent variable is heater output, but all we know is its proxy value reported by the probe):
+Varying heat inputs to match measured temperatures at the probe reveals the following dependence of the thermistor-probe gradient on probe temperature:
 
 ![thermal gradient](gradient.png)
 
