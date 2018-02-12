@@ -85,4 +85,4 @@ Interestingly, while this model hints at rational thought behind the thermal des
 
 ![thermal gradient](gradient.heatsink.png)
 
-> The series labeled *fool's errand* shows how the gradient in the heatsink model varies with probe temperature. It is flipped and scaled 15% for easier comparison with the previous model, *lucky strike*.
+> The series labeled *fool's errand* (red) shows how the gradient in the heatsink model varies with probe temperature. It is flipped and scaled 15% for easier comparison with the previous model, *lucky strike* (green).
