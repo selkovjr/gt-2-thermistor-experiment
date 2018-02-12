@@ -80,3 +80,5 @@ In an attempt to make the model a little more realistic, I added a heatsink:
 ![measured data](diamond-hotend+heatsink-200C.png)
 
 Intuitively, it seems to be a better model. The addition of the heatsink equalized the field and flipped the gradient between the thermistor and the probe. The maximum difference between all sampling points is now 4&deg;C. In the previous model, it was 7&deg;C &mdash; an uncomfortably large amount. Also, the difference between the thermistor and the nozzle (the deliverable in this project) seems more reasonable. What's not to like?
+
+While this model hints at the rational thought behind the thermal design of the Diamond Hotend, it does nothing to improve the warped Steinhart-Hart residuals.
