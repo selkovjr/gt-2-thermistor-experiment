@@ -81,7 +81,7 @@ In an attempt to make the model a little more realistic, I added a heatsink:
 
 Intuitively, it seems to be a better model. The addition of the heatsink equalized the field and flipped the gradient between the thermistor and the probe. The spread between all sampling points is now 4&deg;C. In the previous model, it was 7&deg;C &mdash; uncomfortably large. Also, the difference between the thermistor and the tip of the nozzle (this project's deliverable) seems more reasonable.
 
-Interestingly, while this model is a stronger hint at the possibility that the thermal design of the Diamond Hotend was guided by rational thought, it does nothing to improve the warped Steinhart-Hart residuals. The only sensible transformation that turns into a minimizer of residuals is multiplication by zero.
+Interestingly, while this model is a stronger hint at the possibility that the thermal design of the Diamond Hotend was guided by rational thought, it does nothing to improve the warped Steinhart-Hart residuals. The only sensible transformation that makes it a minimizer of residuals is multiplication by zero.
 
 ![thermal gradient](gradient.heatsink.png)
 
