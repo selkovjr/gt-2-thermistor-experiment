@@ -33,8 +33,9 @@ The resulting model residuals are rather more tame than in the first exepriment:
 ![measured data](SH-fit.2.png)
 
 ```
-Steinthart-Hart coefficients, 3-point estimation:  A = 0.0008387813, B = 0.0001983343, C = 0.0000001545
-Steinthart-Hart coefficients, NLS fit to data:     A = 0.0008401263, B = 0.0001971350, C = 0.0000001683
+Steinthart-Hart coefficients, 3-point estimation:  A = 0.0008336840, B = 0.0001991579, C = 0.0000001516
+Steinthart-Hart coefficients, NLS fit to data:     A = 0.0008324170, B = 0.0001985115, C = 0.0000001625
+
 ```
 
 With oscillations and drift subdued, this experiment reveals what appears to be an irreducible non-linearity of model error, which can now be recognized in the residuals of the first experiment.
@@ -65,8 +66,9 @@ This model is likely wrong about the magnitude of the gradient and even its dire
 ![adjusted model!](SH-fit.corrected.png)
 
 ```
-Steinthart-Hart coefficients, 3-point estimation:  A = 0.0006719893, B = 0.0002241540, C = 0.0000000704
-Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006724225, B = 0.0002239644, C = 0.0000000723
+teinthart-Hart coefficients, 3-point estimation:   A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
+Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006509953, B = 0.0002275946, C = 0.0000000577
+
 ```
 
 Correcting probe temperatures using the raw results of gradient simulation or their best-fit exponential approximation minimizes Steinhart-Hart residuals even better (*r*<sup>2</sup> = 0.18 and 0.16, respectively). But, given the size of measurement error and the lack of physical sense in the perfect optimizer, it is more likely to result in destructive overfitting than in higher accuracy. The realistic adjustment is good enough.
