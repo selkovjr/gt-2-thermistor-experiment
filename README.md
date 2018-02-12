@@ -47,18 +47,16 @@ What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this p
 
 The squiggly Steinhart-Hart residuals seen in Experiment 2 demand explanation. Steinhart and Hart have good reputations and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and the proband thermistor a prime suspect. How big a gradient is it and is it possible that the shape of the field surrounding the probe and the thermistor is responsible for the warped resuduals?
 
-If this was a one-dimensional problem, the answer would be negative. Only a linear gradient can be a steady-state solution in an insulated rod. A quick search around the raw least-squares fit of the Steinhart-Hart model shows that no liear adjustment can achieve a better fit.
-
-To find out what may be possible in two dimensions, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
+To test that possibility, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
 
 [diamond-nozzle.e2d](diamond-nozzle.e2d)
 ![measured data](diamond-hotend-200C.png)
 
 > [The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminates a couple nasty artifacts. I did not have to build his version because the repo includes a pre-built jar; I just ran `java -jar energy2d/exe/energy2d.jar`.
 
-This model is dodgy in too many ways to mention, yet it simulates the sort of gradient that could be responsible for the warp.
+This model is dodgy in too many ways to mention, yet it appears to be capable of simulating some properties of the field that could be responsible for the warp. I have no idea what those properties are.
 
-Varying model heater temperature to match measured temperatures at the probe produced the following dependence of thermistor-probe offset on probe temperature:
+Varying the temperature of simulated heater to match measured temperatures at the probe produced the following dependence of thermistor-probe offset on probe temperature:
 
 ![thermal gradient](gradient.png)
 
