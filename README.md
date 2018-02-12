@@ -87,4 +87,6 @@ Interestingly, while this model is a stronger hint at the possibility that the t
 
 > The series labeled *fool's errand* (red) shows how the gradient in the heatsink model varies with probe temperature. It is flipped and scaled 15% for easier comparison with the previous model, *lucky strike* (green).
 
-This observation begs the question of how many non-trivial model configurations are possible that both match the observed temperature dependence at the probe and properly minimize Steinhart-Hart residuals for the thermistor. Another question (and probably one that should be answered first) is whether the minimization of residuals by a realistic model-derived transformation of probe temperature makes that temperature a good proxy.
+This observation begs the question of how many non-trivial model configurations are possible that both match the observed temperature dependence at the probe and properly minimize Steinhart-Hart residuals for the thermistor. Another question (and probably one that should have been answered first) is whether the minimization of residuals by a model-derived transformation of probe temperatures makes it a good proxy.
+
+The only answer obtained so far is that the warping of Steinhart-Hart residuals in calibration by proxy can possibly be caused by temperature gradient.
