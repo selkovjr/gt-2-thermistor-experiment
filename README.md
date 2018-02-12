@@ -85,4 +85,4 @@ Interestingly, while this model hints at rational thought behind the thermal des
 
 ![thermal gradient](gradient.heatsink.png)
 
-
+The series in above plot labeled *fool's errand* shows how the gradient in the heatsink model varies with probe temperature. The only sensible transformation that turns into a minimizer of Steinhart-Hart residuals is multiplication by zero.
