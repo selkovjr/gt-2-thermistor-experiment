@@ -19,7 +19,7 @@ levels(md$Thermistor) <- sub('X', '', levels(md$Thermistor)) # get rid of the 'X
 # Instead, I have copied the code from library(thermocouple) and swapped column indices (,1 and ,2)
 # in all references to m3p.
 
-m3p <- transform(m2[c(1, 20, 40), ], R = R * 1000)  # pick any three data points and convert kΩ to Ω
+m3p <- transform(m2[c(1, 20, 38), ], R = R * 1000)  # pick any three data points and convert kΩ to Ω
 
 b <- 1/(m3p[,1] + 273.15 ) # convert the row of Celsius temperatures to Kelvin
 b <- cbind(b)              # make it a column

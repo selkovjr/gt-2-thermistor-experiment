@@ -22,7 +22,10 @@ SH-fit.corrected.png: 104GT-measurements.2.tab gt-2-glass-thermistors.tab simula
 	convert -density 100 -flatten tmp.eps $@
 	rm tmp.eps
 
-plot_gradient: gradient.png
+plot_gradient: gradient.png gradient.heatsink.png
 
-gradient.png: simulation.tab
+gradient.png: simulation.tab plot-gradient.r
 	cat plot-gradient.r | R --vanilla --slave # png device writes directly to gradient.png
+
+gradient.heatsink.png: simulation.tab simulation.heatsink.tab plot-gradient.heatsink.r
+	cat plot-gradient.heatsink.r | R --vanilla --slave # png device writes directly to gradient.heatsink.png

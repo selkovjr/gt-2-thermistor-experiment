@@ -45,16 +45,18 @@ What is it? Does it mean that the Steinhart-Hart model is inadequate? Can this p
 
 *No hardware was harmed in the making of this observation*
 
-The squiggly Steinhart-Hart residuals seen in Experiment 2 demand explanation. Steinhart and Hart have good reputation and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and proband thermistor a prime suspect. How big a gradient is it?
+The squiggly Steinhart-Hart residuals seen in Experiment 2 demand explanation. Steinhart and Hart have good reputations and thermistors are not known for exceedingly complex behavior. My thermocouple instrument has been recently calibrated by a standards lab, and I used boiling water and an ice bath to check that it was still sane before I set out to do these experiments. That makes the thermal gradient between the thermocouple and the proband thermistor a prime suspect. How big a gradient is it and is it possible that the shape of the field surrounding the probe and the thermistor is responsible for the warped resuduals?
 
-To find out, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
+If this was a one-dimensional problem, the answer would be negative. All steady-state solutions in an insulated rod result in linear gradients. A quick search around the raw least-squares fit of the Steinhart-Hart model shows that no liear adjustment can result in a better fit.
+
+To find out what may be possible in two dimensions, I built this thermal model of the nozzle using [a version of Energy2D by AnaMarkH](https://github.com/AnaMarkH/energy2d):
 
 [diamond-nozzle.e2d](diamond-nozzle.e2d)
 ![measured data](diamond-hotend-200C.png)
 
 > [The master build of Energy2D](http://energy.concord.org/energy2d/) did not work at this scale because of its grid size and resolution limitations. Also, AnaMarkH's version has an improved solver that eliminates a couple nasty artifacts. I did not have to build his version because the repo includes a pre-built jar; I just ran `java -jar energy2d/exe/energy2d.jar`.
 
-This model is dodgy in too many ways to mention, but some of its features are robust enough to make it useful in this thought experiment.
+This model is dodgy in too many ways to mention, yet it simulates the sort of gradient that could be responsible for the warp.
 
 First off, all such models, good or bad, are robustly redundant for the purposes of thermistor calibration. All we want to know is by how much and in what direction we need to offset probe measurements in order to match the real temperature around the thermistor (otherwise not known because we cannot measure it directly without much hassle). The dependence of gradient strength in a solid on the temperature of heat source is always exponential. Had I managed to remember that, I would simply add an arbitrary exponential function to measured temperature values, optimizing it for the best fit. Instead, I used this sketchy heat transfer model to generate the offsets. This method is both fanciful and thought-free. I like it.
 
