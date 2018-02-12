@@ -57,7 +57,7 @@ To test that possibility, I built this thermal model of the nozzle using [a vers
 
 This model is dodgy in too many ways to mention, yet it appears to be capable of simulating some properties of the field that could be responsible for the warp. I have no idea what those properties are.
 
-Varying the temperature of simulated heater to match measured temperatures at the probe produced the following dependence of thermistor-probe offset on probe temperature:
+Varying the temperature of simulated heater to match the observations at the probe produced the following dependence of thermistor-probe offset on probe temperature:
 
 ![thermal gradient](gradient.png)
 
