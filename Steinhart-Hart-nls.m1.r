@@ -48,8 +48,6 @@ model <- function(t) {
   0.001 * exp( (y - x / 2) ^ (1/3) - (y + x / 2) ^ (1/3) )
 }
 
-model_T <- data.frame(T = range(md$T))
-
 m1$model = sapply(m1$T, model, simplify = TRUE)
 
 breaks <- 10**(1:7) / 100
@@ -63,8 +61,7 @@ plot1 <- ggplot() +
   scale_linetype_manual(values=c('102GT' = 1, '103GT' = 1, '104GT' = 1, '105GT' = 1, '202GT' = 1, '203GT' = 1, '204GT' = 1, '502GT' = 1, '503GT' = 1, '504GT' = 1, 'nls fit' = 3), name='Thermistor') +
   xlim(range(md$T)) +
   ggtitle(bquote(paste('Measured 104GT data and nominal ', italic(R(T)), ' for the GT-2 series, Experiment 1'))) +
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
-  guides(col = guide_legend(keywidth = 5))
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
 
 plot2 <- ggplot() +
   geom_point(data = residuals, mapping = aes(x = T, y = ΔT), size = 0.2) +

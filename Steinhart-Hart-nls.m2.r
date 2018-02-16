@@ -31,21 +31,34 @@ write(sprintf('Steinthart-Hart coefficients, 3-point estimation:                
 
 tm <- transform(m2, T = T + 273.15, R = R * 1000) # transformed measurements
 sh <- nls(T ~ 1 / (A + B * log(R) + C * log(R) ^ 3), data = tm, start = abc) # K, Ω
+abc <- list(A = coef(summary(sh))[1,1], B = coef(summary(sh))[2,1], C = coef(summary(sh))[3,1])
 r2 <- sh$m$deviance()
-write(sprintf('Steinthart-Hart coefficients, NLS fit to data:                     A = %12.10f, B = %12.10f, C = %12.10f', coef(summary(sh))[1,1], coef(summary(sh))[2,1], coef(summary(sh))[3,1]), stderr())
+write(sprintf('Steinthart-Hart coefficients, NLS fit to data:                     A = %12.10f, B = %12.10f, C = %12.10f', abc$A, abc$B, abc$C), stderr())
 
 residuals <- data.frame(cbind(tm[,1] - 273.15, predict(sh) - tm[,1]))
 names(residuals) <- c('T', 'ΔT')
 
 postscript(file='', command='cat', paper='special', onefile=F, horizontal=F, width=12, height=9, pointsize=8)
 
+# Inverse Steinhart-Hart
+model <- function(t) {
+  T <- 273.15 + t
+  x <- (abc$A - 1 / T) / abc$C
+  y <- ((abc$B / (3 * abc$C)) ^ 3 + (x / 2) ^ 2) ^ (1/2)
+  0.001 * exp( (y - x / 2) ^ (1/3) - (y + x / 2) ^ (1/3) )
+}
+
+m2$model = sapply(m2$T, model, simplify = TRUE)
+
 breaks <- 10**(1:7) / 100
 minor_breaks <- rep(seq(2, 8, by = 2), 21) * (10 ^ rep(seq(-10, 10, by = 1), each = 4))
 
 plot1 <- ggplot() +
-  geom_line(data = md, aes(T, Resistance, col=Thermistor), na.rm = TRUE) +
+  geom_line(data = md, aes(T, Resistance, col = Thermistor, linetype = Thermistor), na.rm = TRUE) +
   geom_point(data = m2, mapping = aes(x = T, y = R), size = 0.2) +
+  geom_line(data = m2, mapping = aes(x = T, y = model, color='nls fit', linetype = 'nls fit')) +
   scale_y_log10(breaks = breaks, minor_breaks = minor_breaks, labels = c('0.1', '1', '10', '100', '1000', '10000', '100000'), name = bquote(paste('Resistance, k', Omega))) +
+  scale_linetype_manual(values=c('102GT' = 1, '103GT' = 1, '104GT' = 1, '105GT' = 1, '202GT' = 1, '203GT' = 1, '204GT' = 1, '502GT' = 1, '503GT' = 1, '504GT' = 1, 'nls fit' = 3), name='Thermistor') +
   xlim(range(md$T)) +
   ggtitle(bquote(paste('Measured 104GT data and nominal ', italic(R(T)), ' for the GT-2 series, Experiment 2'))) +
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
