@@ -66,7 +66,7 @@ This model is likely wrong about the magnitude of the field and even its shape, 
 ![adjusted model!](SH-fit.corrected.png)
 
 ```
-Steinthart-Hart coefficients, 3-point estimation:   A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
+Steinthart-Hart coefficients, 3-point estimation:  A = 0.0006492344, B = 0.0002279751, C = 0.0000000558
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006509953, B = 0.0002275946, C = 0.0000000577
 ```
 
