@@ -9,8 +9,8 @@ Thanks to [David Crocker](https://github.com/dc42) who has identified my thermis
 ![measured data](SH-fit.1.png)
 
 ```
-Steinthart-Hart coefficients, 3-point estimation:  A = 0.0008149464, B = 0.0002077971, C = 0.0000000996
-Steinthart-Hart coefficients, NLS fit to data:     A = 0.0008235063, B = 0.0002046960, C = 0.0000001247
+Steinthart-Hart coefficients, 3-point estimation:                  A = 0.0005949118, B = 0.0002426185, C = -0.0000000180
+Steinthart-Hart coefficients, NLS fit to data:                     A = 0.0008235064, B = 0.0002046959, C = 0.0000001247
 ```
 
 The colored lines are [resistance-temeperature tables](https://github.com/selkovjr/gt-2-thermistor-experiment/blob/master/gt-2-glass-thermistors.tab) from [ATC Semitec's datasheet](http://www.atcsemitec.co.uk/gt-2-glass-thermistors.html); black dots are the measurements I took from the thermistor I received with the [BiQu Diamond Hotend](https://www.biqu.equipment/products/diamond-3d-printer-extruder-reprap-hotend-3d-v6-heatsink-3-in-1-out-multi-nozzle-extruder-prusa-i3-kit-for-1-75-0-4mm).
@@ -19,6 +19,7 @@ While the data points from the first experiment appear to straddle the nominal c
 
 To provide temperature signal to the thermostat while I measured the resistance of the proband thermistor, I used an auxiliary thermistor tucked under the insulation blanket on top of the nozzle, next to the heater cartridge. While this set-up helped reduce the lag between the two thermistors, it was also insecure and probably accounted for much of the observed drift. Also, I neglected to tune the thermostat and it oscillated more than it normally does, making it difficult to track the set value. The two thermistors are not entirely dissimilar, so I thought the thermostat would work well if I simply swapped the auxiliary one in without even calibrating it. It worked, but not too well.
 
+> It did not work at all for the 3-point method, with the first and last temperature points were picked, along with one in the middle. The C coefficient can't be negative because the inverse Steinhart-Hart equation depends on a square root of it. The 3-point results varied wildly in this experiment &mdash from nonsensical to plausible, depending on the choice of points. Sergei Severin once advised his then-young student Schnoll, who lamented his inability to achieve convrgent measurements of reaction rates: "Take fewer measurements, and your life will be much easier". The rest of this little report describes what happens when one doesn't heed the wisdom of the greats.
 
 ## Experiment 2
 
@@ -89,4 +90,4 @@ Interestingly, while this model is a stronger hint at the possibility that the t
 
 This observation begs the question of how many non-trivial model configurations are possible that both match the observed temperature dependence at the probe and properly minimize Steinhart-Hart residuals for the thermistor. Another question (and probably one that should have been answered first) is whether the minimization of residuals by a model-derived transformation of probe temperatures makes it a good proxy.
 
-The only answer obtained so far is that the warping of Steinhart-Hart residuals in calibration by proxy can possibly be caused by temperature gradient.
+The only answer obtained so far is that the warping of Steinhart-Hart residuals by proxy calibration can possibly be caused by temperature gradient.
