@@ -70,7 +70,7 @@ Steinthart-Hart coefficients, 3-point estimation:  A = 0.0006492344, B = 0.00022
 Steinthart-Hart coefficients, NLS fit to data:     A = 0.0006509953, B = 0.0002275946, C = 0.0000000577
 ```
 
-That is a remarkably good fit, free of obvious artifacts. The thermal model must be right about something. Now the question is, will it be right every time, or was this a stroke of luck?
+That is a remarkably good fit, free of obvious artifacts. The thermal model must be right about something. The question is, will it be right every time, or was this a stroke of luck?
 
 
 ## Sanity check
@@ -90,4 +90,4 @@ Interestingly, while this model is a stronger hint at the possibility that the t
 
 This observation begs the question of how many non-trivial model configurations are possible that both match the observed temperature dependence at the probe and properly minimize Steinhart-Hart residuals for the thermistor. Another question (and probably one that should have been answered first) is whether the minimization of residuals by a model-derived transformation of probe temperatures makes it a good proxy.
 
-The only answer obtained so far is that the warping of Steinhart-Hart residuals by proxy calibration can possibly be caused by temperature gradient.
+The only answer obtained so far is that the warping of Steinhart-Hart residuals as a result of calibration by proxy can possibly be caused by temperature gradient.
