@@ -100,6 +100,8 @@ In this last experiment, letting the printer take control of the hotend temperat
 
 ![thermal gradient](proxy.png)
 
+> The noticeable kinks in the curves, especially in the blue gradient-compensated curves, correspond to fan threshold temperatures: on at 20% power at 45&deg;C; full power at 150&deg;C.
+
 ### Nominal values (red curve)
 
 Setting thermostat parameters from ATC Semitec data sheet resulted in a limited but uncomfortably large deviation. Especially uncomfortable is its direction: it makes the thermistor appear cooler than the probe. Still, in the absence of calibration data, it is not a terrible solution. With proper tune-up, it can result in a working thermostat. The downside of this approach is that it is impossible to tell how accurate it is.
