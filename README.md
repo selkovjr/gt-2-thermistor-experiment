@@ -100,7 +100,7 @@ In this last experiment, letting the printer take control of the hotend temperat
 
 ![thermal gradient](proxy.png)
 
-> The noticeable kinks in the curves, especially in the blue gradient-compensated curves, correspond to fan threshold temperatures: on at 20% power at 45&deg;C; full power at 150&deg;C. Without the fan, the curves would be rather less steep, but then everything around the hotend would melt.
+> The noticeable kinks in the curves, especially in the blue gradient-compensated ones, correspond to fan threshold temperatures: on at 20% power at 45&deg;C; full power at 150&deg;C. Without the fan, the curves would be rather less steep, but then everything around the hotend would melt.
 
 ### Nominal values (red curve)
 
