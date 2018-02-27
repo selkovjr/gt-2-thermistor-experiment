@@ -102,8 +102,16 @@ In this last experiment, letting the printer take control of the hotend temperat
 
 ### Nominal values
 
-Setting thermostat parameters from Semitec's data sheet produces a limited but uncomfortably large deviation. Especially uncomfortable is its direction: it makes the termistor appear cooler than the probe. Still, in the absence of accurate information, it is not a terrible solution. With proper tune-up, it results in a working thermostat. It is impossible to tell how accurate it is.
+Setting thermostat parameters from ATC Semitec data sheet resulted in a limited but uncomfortably large deviation. Especially uncomfortable is its direction: it makes the termistor appear cooler than the probe. Still, in the absence of calibration data, it is not a terrible solution. With proper tune-up, it can result in a working thermostat. The downside of this approach is that it is impossible to tell how accurate it will be.
 
-### Nominal values with measured room temperature resistance
+### Nominal values with measured room-temperature resistance
 
-Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way &mdash; without obvious second-order distortions.
+Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&degC;, the gradient inside the hot end is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, but not as wrong as with all nominal values informing the thermostat.
+
+Note that the measured resistance is within the factory tolerance of 3%.
+
+### Zero gradient assumption
+
+A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hot end seen on the market today. It is an even better assumption if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hot ends as much as possible; that should improve temmperature accuracy, possibly allowing for **in situ** calibration.
+
+Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way, without obvious second-order distortions.
