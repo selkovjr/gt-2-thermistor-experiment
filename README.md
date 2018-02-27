@@ -61,7 +61,7 @@ Varying the temperature of simulated heater to match the observations at the pro
 
 ![thermal gradient](gradient.png)
 
-This model is likely wrong about the magnitude of the field and even its shape, but somehow, transforming the data by adding a linear function of the simulated offsets (negating and scaling them **by a factor of 23**)  minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle:
+This model is likely wrong about the magnitude of the field and even its shape, but somehow, transforming the data by adding a linear function of the simulated offsets (negating and scaling them *by a factor of 23*)  minimizes the Stheinhart-Hart resuduals, completely eliminating the squiggle:
 
 ![adjusted model!](SH-fit.corrected.png)
 
@@ -94,7 +94,7 @@ The only answer obtained so far is that the warping of Steinhart-Hart residuals 
 
 ## Closed-loop testing
 
-All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hot end and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-up, which, by design, is subject to high temperature gradients. The only situations that will allow accurate calibration are those that minimize the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hot end. Neither approach is practical without dismantling the hot end. The best way to do it is to take the thermistor out to calibrate it in a bath thermostat. At the high end of the range, it may need to be a molten metal bath.
+All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hotend and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-up, which, by design, is subject to high temperature gradients. The only situations that will allow accurate calibration are those that minimize the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hotend. Neither approach is practical without dismantling the hotend. The best way to do it is to take the thermistor out to calibrate it in a bath thermostat. At the high end of the range, it may need to be a molten metal bath.
 
 In this last experiment, letting the printer take control of the hotend temperature with the proband thermistor in the loop, I observed numeric differences between set-point temperatures and probe readings. The following graph shows these differences plotted for each conceivable set of Steinhart-Hart coeefficients.
 
@@ -106,12 +106,14 @@ Setting thermostat parameters from ATC Semitec data sheet resulted in a limited 
 
 ### Nominal values with measured room-temperature resistance
 
-Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&degC;, the gradient inside the hot end is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, but not as wrong as with all nominal values informing the thermostat.
+Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&degC;, the gradient inside the hotend is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, but not as wrong as with all nominal values informing the thermostat.
 
 Note that the measured resistance is within the factory tolerance of 3%.
 
 ### Zero gradient assumption
 
-A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hot end seen on the market today. It is an even better assumption if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hot ends as much as possible; that should improve temmperature accuracy, possibly allowing for **in situ** calibration.
+A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hotend seen on the market today. It is an even better assumption if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hotends as much as possible; that should improve temmperature accuracy, possibly allowing for *in situ* calibration.
+
+In the Diamond Hotend, the observed temperature dependence of probe deviation completely invalidates the assumption of zero gradient. It is, indeed, the least deviant of all models tested, but it is such by design. It achieves this result by bending the truth, both figuratively and literally. I find no comfort in a (relatively) small deviation knowing that it was achieved with a non-convex transformation of temperature-resistance dependence. It implies a non-convex (and negative) gradient &mdash; a certain impossibility.
 
 Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way, without obvious second-order distortions.
