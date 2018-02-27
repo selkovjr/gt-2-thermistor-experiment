@@ -23,7 +23,7 @@ To provide temperature signal to the thermostat while I measured the resistance 
 
 ## Experiment 2
 
-In the following experiment, instead of taking many measurements around each temperature setting in the hope that they would average close to it, I waited until the thermostat settled before taking each measurement. Also, unlike the first time, I made efforts to calibrate the auxiliary thermistor (using the Beta model) and tuned the thermostat to it. This time, I placed the auxiliary thermistor inside a screw hole in the nozzle, so that it was completely embedded in the metal, but still close to the surface (I was unable to screw it in deeper).
+In the following experiment, instead of taking many measurements around each set point in the hope that they would average close to it, I waited until the thermostat settled before taking each measurement. Also, unlike the first time, I made efforts to calibrate the auxiliary thermistor (using the Beta model) and tuned the thermostat to it. This time, I placed the auxiliary thermistor inside a screw hole in the nozzle, so that it was completely embedded in the metal, but still close to the surface (I was unable to screw it in deeper).
 
 ![hotend picture](diamond-hotend.png)
 
