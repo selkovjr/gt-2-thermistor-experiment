@@ -100,17 +100,17 @@ In this last experiment, letting the printer take control of the hotend temperat
 
 ![thermal gradient](proxy.png)
 
-### Nominal values
+### Nominal values (red curve)
 
 Setting thermostat parameters from ATC Semitec data sheet resulted in a limited but uncomfortably large deviation. Especially uncomfortable is its direction: it makes the termistor appear cooler than the probe. Still, in the absence of calibration data, it is not a terrible solution. With proper tune-up, it can result in a working thermostat. The downside of this approach is that it is impossible to tell how accurate it is.
 
-### Nominal values with measured room-temperature resistance
+### Nominal values with measured room-temperature resistance (faint red curve)
 
 Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&deg;C, the gradient inside the hotend is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, although apparently not as wrong as with all nominal values informing the thermostat.
 
 Note that the measured resistance is within the factory tolerance of 3%.
 
-### Zero gradient assumption
+### Zero gradient assumption (cyan curve)
 
 A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hotend seen on the market today. It is an even better assumption if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hotends as much as possible; that should improve temmperature accuracy, possibly allowing for *in situ* calibration.
 
@@ -118,13 +118,14 @@ In the Diamond Hotend, the observed temperature dependence of probe deviation co
 
 It is still likely the least wrong of all wrong solutions; probably good enough to set up a well-working thermostat (I tested that extensively), but not good enough for accurate temperature measurement.
 
-### Well-behaved solution based on gradient compensation
+### Well-behaved solution based on gradient compensation (two blue curves)
 
-Notwithstanding the murky machinations that let me discover a plausible gradient compensation, the model that takes it into account seems to make most sense. Here is the list of reasons why I like it.
+Notwithstanding the murky machinations that let me discover a plausible gradient compensation, the model that takes it into account seems to make the most sense. Here is the list of reasons why I like it.
 
-* It does not produce non-convex behavior
-* It minimizes Steinhart-Hart residuals in a sane way. The residuals appear to be random and are comparable with the measurement error (cold junction instability, reference voltage accuracy, and rounding erroris in digital displays). This result and the non-convexity of probe deviation may be aspects of the same phenomenon; if they are, it is still nice to be a able to observe it by a couple different methods.
-* It does not imply a heat sink inside the nozzle or a heat source on the outside. The observed steady-state behavior always indicates a hotter core.
-* The dynamic behavior during heat-up and cool-down (not presented here due to difficulties in recording) is quasi-symmetric. The system exhibits higher probe deviation during heat-up and lower or negative deviation during cool-down. The inversion of the gradient is possible because the tips of the heatsinks are closer to the thermistor than to the probe. In fact, the hole into which I inserted the probe is equidistant and most removed from the nearest pair of heatsinks; heatsinks are more efficient than the smooth surface of the nozzle, and thus  *momentary* inversion of the gradient makes more sense than it being constantly positive, let alone constantly negative.
+* It does not produce non-convex behavior.
+* It minimizes Steinhart-Hart residuals in a sane way. The residuals appear to be random, symmetric, and are comparable with the measurement error (cold junction instability, reference voltage accuracy, and rounding erroris in digital displays). This result and the non-convexity of probe deviation may be aspects of the same phenomenon; if they are, it is still nice to be a able to observe it by a couple different methods.
+* This solution does not imply a heat sink inside the nozzle or a heat source on the outside. The observed steady-state behavior always indicates a hotter core.
+* The dynamic behavior during heat-up and cool-down (not presented here due to difficulties in recording) shows a quasi-symmetric probe lag. The system exhibits higher probe deviation during heat-up and lower or negative deviation during cool-down. The inversion of the gradient is possible because the tips of the heatsinks are closer to the thermistor than to the probe. In fact, the hole into which I inserted the probe is equidistant and most removed from the nearest pair of heatsinks; the smooth surface of the nozzle in a natural convective flow is less efficient than fan-cooled heatsinks; thus  *momentary* inversion of the gradient during cool-down makes more sense than if it were constantly positive, let alone constantly negative.
+* A circumstantial, yet reassuring, evidence of good behavior is found in the fact that the Steinhart-Hart coefficients obtained with gradient compensation resulted in the most agile thermostat response after tune-up (about 20% better than the next best result).
 
-Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way, without obvious second-order distortions.
+#### Why two curves?
