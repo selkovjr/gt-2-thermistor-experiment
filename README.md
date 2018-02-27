@@ -4,7 +4,7 @@
 
 ## Experiment 1
 
-Thanks to [David Crocker](https://github.com/dc42) who has identified my thermistor from a vague description I gave him, now I know what it was supposed to be like. It is a 104GT glass thermistor by ATC Semitec. The codename obviously means *"an (approximately) 100k&Omega; Glass Thermistor"*. This is how we know:
+Thanks to [David Crocker](https://github.com/dc42) who has identified my thermistor from a vague description I gave him, now I know what it was supposed to be like. It is a 104GT glass thermistor by ATC Semitec. The codename obviously means *&ldquo;an (approximately) 100k&Omega; Glass Thermistor&rdquo;*. This is how we know:
 
 ![measured data](SH-fit.1.png)
 
