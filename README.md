@@ -91,3 +91,13 @@ Interestingly, while this model is a stronger hint at the possibility that the t
 This observation begs the question of how many non-trivial model configurations are possible that both match the observed temperature dependence at the probe and properly minimize Steinhart-Hart residuals for the thermistor. Another question (and probably one that should have been answered first) is whether the minimization of residuals by a model-derived transformation of probe temperatures makes it a good proxy.
 
 The only answer obtained so far is that the warping of Steinhart-Hart residuals as a result of calibration by proxy can possibly be caused by temperature gradient.
+
+## Closed-loop testing
+
+All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hot end and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-upi, which, by design, is subject to high temperature gradients. The only situation that will allow accurate calibration is one that minimizes the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hot end. Neither approach is practical. The best way to do it is to take the thermistor out and place it in a bath thermostat. It might need to be a molten metal bath.
+
+In this last experiment, letting the printer take control of the hotend temperature with the proband thermistor in the loop, I observed numeric differences between set-point temperatures and probe readings for each set of Steinhart-Hart coeefficients I obtained under different assumptions, including nominal values from Semitec's data sheet.
+
+![thermal gradient](proxy.png)
+
+Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way &mdash; without obvious second-order distortions.

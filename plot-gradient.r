@@ -17,4 +17,5 @@ ggplot() +
   geom_point(data = data, mapping = aes(x = probe, y = 0.0001 + probe - thermistor, color = 'a'), shape = 19, size = 1.5) +
   xlab(expression('Probe temperature, ' * degree * C)) +
   ylab(expression(italic(T)[probe] - italic(T)[thermistor] * ', ' * degree * C)) +
-  theme(legend.position = 'none')
+  ggtitle(bquote(paste('Modeled probe-thermistor gradient'))) +
+  theme(legend.position = 'none', plot.title = element_text(size=10))

@@ -1,4 +1,4 @@
-all: plot_data plot_gradient
+all: plot_data plot_gradient plot_proxy
 
 plot_data: measurements.1.png SH-fit.1.png SH-fit.2.png SH-fit.corrected.png
 
@@ -29,3 +29,9 @@ gradient.png: simulation.tab plot-gradient.r
 
 gradient.heatsink.png: simulation.tab simulation.heatsink.tab plot-gradient.heatsink.r
 	cat plot-gradient.heatsink.r | R --vanilla --slave # png device writes directly to gradient.heatsink.png
+
+plot_proxy: proxy.png
+
+proxy.png: plot-proxy.r
+	cat plot-proxy.r | R --vanilla --slave # png device writes directly to proxy.png
+
