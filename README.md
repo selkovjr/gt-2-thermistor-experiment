@@ -94,7 +94,7 @@ The only answer obtained so far is that the warping of Steinhart-Hart residuals 
 
 ## Closed-loop testing
 
-All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hotend and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-up, which, by design, is subject to high temperature gradients (what with that fan kicking in at 45&degC; and going full speed at 150&degC;). The only situations that will allow accurate calibration are those that minimize the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hotend. Neither approach is practical without dismantling the hotend. The best way to do it is to take the thermistor out to calibrate it in a bath thermostat. At the high end of the range, it may need to be a molten metal bath.
+All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hotend and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-up, which, by design, is subject to high temperature gradients (what with that fan kicking in at 45&deg;C and going full speed at 150&deg;C). The only situations that will allow accurate calibration are those that minimize the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hotend. Neither approach is practical without dismantling the hotend. The best way to do it is to take the thermistor out to calibrate it in a bath thermostat. At the high end of the range, it may need to be a molten metal bath.
 
 In this last experiment, letting the printer take control of the hotend temperature with the proband thermistor in the loop, I observed numeric differences between set-point temperatures and probe readings. The following graph shows these differences plotted for each conceivable set of Steinhart-Hart coeefficients.
 
@@ -106,7 +106,7 @@ Setting thermostat parameters from ATC Semitec data sheet resulted in a limited 
 
 ### Nominal values with measured room-temperature resistance
 
-Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&degC;, the gradient inside the hotend is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, but not as wrong as with all nominal values informing the thermostat.
+Measuring thermistor resistance at room temperature can be done fairly accurately. With ambient temperature at 21&deg;C, the gradient inside the hotend is negligible. Adjusting the Steinhart-Hart equation using the measured room-temperature resistance (98400&Ohm; in this case) resulted in somewhat better behavior. It is still wrong, but not as wrong as with all nominal values informing the thermostat.
 
 Note that the measured resistance is within the factory tolerance of 3%.
 
