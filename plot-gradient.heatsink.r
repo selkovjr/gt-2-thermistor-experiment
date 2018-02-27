@@ -13,7 +13,7 @@ png(filename = 'gradient.heatsink.png', width = 1200, height = 600, pointsize = 
 ggplot() +
   scale_colour_manual('',
     values = c(rgb(0.4, 0.6, 0.2, 0.6), rgb(0.9, 0.2, 0.3, 0.6)),
-    labels = c('lucky strike', "fool's errand")
+    labels = c('stroke of luck', "fool's errand")
   ) +
   geom_point(data = data_h, mapping = aes(x = probe, y = 0.0001 - 0.15 * (probe - thermistor), color = 'b'), shape = 19, size = 1.5) +
   stat_smooth(data = data_h, mapping = aes(x = probe, y = 0.0001 - 0.15 * (probe - thermistor), color = 'b'), method = "loess", se = FALSE, size = 0.5) +
