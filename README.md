@@ -96,8 +96,14 @@ The only answer obtained so far is that the warping of Steinhart-Hart residuals 
 
 All observations seem to indicate that a substantial thermal resistance exists betwen the thermistor site and the more peripheral location of the thermocouple probe. Therefore, no calibration attempt involving superficial contact between the hot end and a probe, or even inserting the probe into existing holes, will ever work in a live printer set-up, which, by design, is subject to high temperature gradients. The only situations that will allow accurate calibration are those that minimize the gradient &mdash; either by reducing the distance between the thermistor and the probe or by insulating the hot end. Neither approach is practical without dismantling the hot end. The best way to do it is to take the thermistor out to calibrate it in a bath thermostat. At the high end of the range, it may need to be a molten metal bath.
 
-In this last experiment, letting the printer take control of the hotend temperature with the proband thermistor in the loop, I observed numeric differences between set-point temperatures and probe readings for each set of Steinhart-Hart coeefficients obtained under different assumptions, including nominal values from Semitec's data sheet.
+In this last experiment, letting the printer take control of the hotend temperature with the proband thermistor in the loop, I observed numeric differences between set-point temperatures and probe readings. The following graph shows these differences plotted for each conceivable set of Steinhart-Hart coeefficients.
 
 ![thermal gradient](proxy.png)
+
+### Nominal values
+
+Setting thermostat parameters from Semitec's data sheet produces a limited but uncomfortably large deviation. Especially uncomfortable is its direction: it makes the termistor appear cooler than the probe. Still, in the absence of accurate information, it is not a terrible solution. With proper tune-up, it results in a working thermostat. It is impossible to tell how accurate it is.
+
+### Nominal values with measured room temperature resistance
 
 Among all estimates of Steinhart-Hart coefficients, I like the one that minimizes model residuals in the most sensible way &mdash; without obvious second-order distortions.
