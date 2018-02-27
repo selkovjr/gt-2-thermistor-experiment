@@ -114,7 +114,7 @@ Note that the measured resistance is within the factory tolerance of 3%.
 
 ### Zero gradient assumption (cyan curve)
 
-A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hotend seen on the market today. It is an even better assumption if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hotends as much as possible; that should improve temperature accuracy, possibly allowing for *in situ* calibration.
+A na&iuml;ve approach to calibration would be to ignore thermal resistance between the thermistor and the probe. This may be a fair assumption in the case of a small heater block, such as the original RepRap block or pretty much every hotend seen on the market today. It gets even better if the heater block is insulated. I noticed the current trend in 3D printer design is to insulate the hotend; that should improve temperature accuracy, possibly allowing for *in situ* calibration.
 
 In the Diamond Hotend, the observed temperature dependence of probe deviation completely invalidates the assumption of zero gradient. It is, indeed, the least deviant of all models tested, but it is such by design. It achieves this result by bending the truth, both figuratively and literally. I find no comfort in a (relatively) small deviation knowing that it could only be achieved with a non-convex transformation of temperature-resistance dependence. It implies a non-convex (and negative) gradient &mdash; a certain impossibility.
 
