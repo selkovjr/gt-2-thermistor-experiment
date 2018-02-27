@@ -22,8 +22,8 @@ ggplot() +
       expression(paste('Nominal ', italic(A), ', ', italic(B), ', ', italic(C))),
       expression(paste('Measured ', italic(R)[25], ', nominal ', italic(B), ' and ', italic(C))),
       expression(paste('Least squares ', italic(A), ', ', italic(B), ', ', italic(C), ', zero gradient assumption')),
-      expression(paste('Least squares ', italic(A), ', ', italic(B), ', ', italic(C), ', gradient adjustment (test 1)')),
-      expression(paste('Least squares ', italic(A), ', ', italic(B), ', ', italic(C), ', gradient adjustment (test 2)'))
+      expression(paste('Least squares ', italic(A), ', ', italic(B), ', ', italic(C), ', gradient compensation (test 1)')),
+      expression(paste('Least squares ', italic(A), ', ', italic(B), ', ', italic(C), ', gradient compensation (test 2)'))
     )
   ) +
   geom_point(data = data.nominal_abc, mapping = aes(x = probe, y = setting - probe, color = 'a. nominal ABC'), shape = 19, size = 1.5) +
