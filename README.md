@@ -102,7 +102,7 @@ In this last experiment, letting the printer take control of the hotend temperat
 
 > The noticeable kinks in the curves, especially in the blue gradient-compensated ones, correspond to fan threshold temperatures: on at 20% power at 45&deg;C; full power at 150&deg;C. Without the fan, the curves would be rather less steep, but then everything around the hotend would melt.
 >
-> The weird behavior at room temperature is probably caused by measurement error, at least partially, and it as also consistent with the possibility that the series resistor on the board is not exactly 4700&Omega; and has non-zero temperature dependence; I will update these observations when I find it and measure its actual resistantce.
+> The weird behavior at room temperature is probably caused by measurement error, at least partially, and it as also consistent with the possibility that the series resistor on the board is not exactly 4700&Omega; and has non-zero temperature dependence. I will update these observations when I find it and measure its actual resistantce.
 
 ### Nominal values (red curve)
 
