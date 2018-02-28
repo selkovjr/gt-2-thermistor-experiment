@@ -122,7 +122,7 @@ It is still likely the least wrong of all wrong solutions; probably good enough 
 
 ### Well-behaved solution based on gradient compensation (blue curves)
 
-Notwithstanding the murky machinations that let me discover a plausible gradient compensation, the model that takes it into account seems to make the most sense. Here is the list of reasons why I like it.
+Notwithstanding the murky machinations that lead me to discover a plausible gradient compensation, the model that takes it into account seems to make the most sense. Here is the list of reasons why I like it.
 
 * It does not produce non-convex behavior.
 * It minimizes Steinhart-Hart residuals in a sane way. The residuals appear to be random, symmetric, and are commensurate with instrument error (cold junction instability, reference voltage accuracy, and rounding errors in digital displays). This result and the non-convexity of probe deviation may be aspects of the same phenomenon; if they are, it is still nice to be a able to observe it by a couple different methods.
